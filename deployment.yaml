@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-action-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-action-gke
+  template:
+    metadata:
+      labels:
+        app: github-action-gke
+    spec:
+      containers:
+        - name: app
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
+          imagePullPolicy: Always
