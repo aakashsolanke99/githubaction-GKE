@@ -9,8 +9,8 @@ env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
   GKE_CLUSTER: github-action-gke
   GKE_ZONE: us-central1
-  DEPLOYMENT_NAME: github-action-gke
-  IMAGE: github-action-gke-image
+  DEPLOYMENT_NAME: github-actions-gke
+  IMAGE: github-actions-gke-image
   TAG: 1.0.0
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Setup Google Cloud CLI
-        uses: GoogleCloudPlatform/github-action/setup-gcloud@v0.2.1
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v0.2.1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         with:
