@@ -12,6 +12,9 @@ env:
   DEPLOYMENT_NAME: github-actions-gke
   IMAGE: github-actions-gke-image
   TAG: 1.0.0
+  DATABASE_URL: jdbc:mysql://34.132.38.183/springdatajpa?useSSL=false
+  DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+  DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
 
 jobs:
   setup-build-publish-deploy:
