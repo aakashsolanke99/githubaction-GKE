@@ -52,8 +52,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-            PROJECT_ID=$(echo "$PROJECT_ID" | tr -d '\n')
-            docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+          PROJECT_ID=$(echo "$PROJECT_ID" | tr -d '\n')
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+          echo "DATABASE_URL=${DATABASE_URL}" >> application.properties
+          echo "DATABASE_USERNAME=${DATABASE_USERNAME}" >> application.properties
+          echo "DATABASE_PASSWORD=${DATABASE_PASSWORD}" >> application.properties
 
       - name: Include Cloud SQL Proxy in Docker Image
         run: |
